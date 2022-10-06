@@ -8,12 +8,17 @@ export class ProductsListController {
     }
 
     LoadProducts() {
+        if (productsList.length === 0) {
+            this.showNoProducts();
+        }
         productsList.forEach((product) => {
             const articleElement = document.createElement('article');
-
             articleElement.innerHTML = buildProductsListView(product);
-
             this.productsListContainerElement.appendChild(articleElement);
         });
+    }
+
+    showNoProducts() {
+        this.productsListContainerElement.innerHTML = 'No hay productos';
     }
 }
