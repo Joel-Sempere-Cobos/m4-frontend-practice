@@ -4,4 +4,4 @@ En esta práctica debemos crear el frontend de una web tipo Wallapop, con anunci
 
 No se pueden usar librerías ni frameworks de javascript.
 
-Aquí puedes ver el [enunciado de la práctica](https://github.com/Joel-Sempere-Cobos/m4-frontend-practice/blob/master/Enunciado-practica-desarrollo-frontend-js.pdf).
+Aquí puedes descargar el [enunciado de la práctica](https://github.com/Joel-Sempere-Cobos/m4-frontend-practice/blob/master/Enunciado-practica-desarrollo-frontend-js.pdf).
