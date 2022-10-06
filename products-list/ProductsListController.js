@@ -1,3 +1,6 @@
+import { productsList } from './productsListProvider.js';
+import { buildProductsListView } from './productsListView.js';
+
 export class ProductsListController {
     constructor(nodeElement) {
         this.productsListContainerElement = nodeElement;
@@ -5,6 +8,12 @@ export class ProductsListController {
     }
 
     LoadProducts() {
-        this.productsListContainerElement.innerHTML = '<h2> a ver si esto funciona </h2>';
+        productsList.forEach((product) => {
+            const articleElement = document.createElement('article');
+
+            articleElement.innerHTML = buildProductsListView(product);
+
+            this.productsListContainerElement.appendChild(articleElement);
+        });
     }
 }
