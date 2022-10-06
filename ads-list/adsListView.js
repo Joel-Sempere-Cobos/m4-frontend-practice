@@ -10,3 +10,9 @@ export const buildAdsListView = (ad) => {
 
     return adView;
 };
+
+export const buildAdsListLoader = () => {
+    return `
+    <div class="loader-container"><span class="loader"></span></div>
+    `;
+};

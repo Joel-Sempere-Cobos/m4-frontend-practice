@@ -1,4 +1,13 @@
-export const adsList = [
+import { sparrestApi } from '../sparrestApi.js';
+
+export async function getAds() {
+    const endpoint = `${sparrestApi.endpoints.ads}`;
+    /* ?_expand=user */
+    const ads = await sparrestApi.get(endpoint);
+    return ads;
+}
+
+/* export const adsList = [
     {
         img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1617135051000',
         adTitle: 'Vendo iphone',
@@ -16,3 +25,4 @@ export const adsList = [
         buy: true,
     },
 ];
+ */

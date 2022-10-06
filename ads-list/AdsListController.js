@@ -1,5 +1,5 @@
-import { adsList } from './adsListProvider.js';
-import { buildAdsListView } from './adsListView.js';
+import { getAds } from './adsListProvider.js';
+import { buildAdsListView, buildAdsListLoader } from './adsListView.js';
 
 export class AdsListController {
     constructor(nodeElement) {
@@ -7,23 +7,25 @@ export class AdsListController {
         this.loadAds();
     }
 
-    loadAds() {
-        try {
-            if (adsList.length === 0) {
-                this.showNoAds();
-            }
-            adsList.forEach((ad) => {
-                const articleElement = document.createElement('article');
-                articleElement.classList.add('ad');
-                articleElement.innerHTML = buildAdsListView(ad);
-                this.adsListContainerElement.appendChild(articleElement);
-            });
-        } catch (error) {
-            this.errorNotification(error);
+    async loadAds() {
+        this.adsListContainerElement.innerHTML = buildAdsListLoader();
+        const adsList = await getAds();
+
+        if (adsList.length === 0) {
+            this.showNoAds();
         }
+
+        for (let ad of adsList) {
+            const articleElement = document.createElement('article');
+            articleElement.classList.add('ad');
+            articleElement.innerHTML = buildAdsListView(ad);
+            this.adsListContainerElement.appendChild(articleElement);
+        }
+
+        this.adsListContainerElement.querySelector('.loader-container').classList.toggle('hide');
     }
 
-    showNoProducts() {
+    showNoAds() {
         this.adsListContainerElement.innerHTML = 'No hay anuncios';
     }
 
