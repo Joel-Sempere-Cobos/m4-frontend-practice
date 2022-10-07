@@ -10,11 +10,19 @@ body {
     flex-direction: column;    
     justify-content: center;
     align-items: center;
+    max-width: 350px;
 }
 
 .ad p {
-    width: 40%;
+    width: 80%;
     text-align: center;
+}
+
+.separator {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
 }
 
 .hide {
