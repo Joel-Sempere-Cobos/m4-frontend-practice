@@ -17,6 +17,13 @@ body {
     text-align: center;
 }
 
+.separator {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+}
+
 .hide {
     display: none;
 }
