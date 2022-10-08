@@ -5,6 +5,14 @@ body {
     align-items: center;
 }
 
+header {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+
+}
+
 .ad {
     display: flex;
     flex-direction: column;    
