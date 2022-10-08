@@ -1,4 +1,4 @@
-import { signupApi } from './signup-provider.js';
+import { signupApi, loginApi } from './signup-provider.js';
 
 export class SignupController {
     constructor(nodeElement) {
@@ -58,8 +58,8 @@ export class SignupController {
         const password = formData.get('password');
         try {
             await signupApi(username, password);
-            /* const jwt = await loginApiUser(username, password);
-            localStorage.setItem('token', jwt); */
+            const jwt = await loginApi(username, password);
+            localStorage.setItem('token', jwt);
 
             // hacer cosas
         } catch (error) {
