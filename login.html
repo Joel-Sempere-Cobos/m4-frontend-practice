@@ -5,17 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/main.css" />
-        <title>Registro de usuario</title>
+        <title>Acceso de usuario</title>
     </head>
     <body>
         <header>
             <h1>Wallapost</h1>
-            <nav><a href="http://127.0.0.1:5500/">Volver a inicio</a></nav>
+            <nav>
+                <a href="http://127.0.0.1:5500/">Volver a inicio</a>
+                <a href="http://127.0.0.1:5500/signup.html">Registrarse</a>
+            </nav>
 
-            <h2>Registro de usuario</h2>
+            <h2>Acceso de usuario</h2>
             <p class="separator">--------------------------</p>
         </header>
-        <form id="signup-form">
+        <form id="login-form">
             <label for="username"></label>
             <input id="username" name="username" type="text" placeholder="Introduce tu usuario" />
             <label for="password"></label>
@@ -25,13 +28,10 @@
                 name="password"
                 placeholder="Introduce tu contraseña"
             />
-            <!-- TODO <label for="confirm-password"></label>
-            <input id="confirm-password" type="password" name="confirm-password" /> -->
-
-            <button id="signupButton" type="submit" disabled>Crear usuario</button>
+            <button id="loginButton" type="submit" disabled>Acceder</button>
         </form>
         <section id="notification"></section>
 
-        <script type="module" src="/signup/index.js"></script>
+        <script type="module" src="/login/index.js"></script>
     </body>
 </html>

@@ -25,8 +25,8 @@ export class CreateAdsController {
 
         const adBuySell = formData.get('ad-buy-sell');
         createApiAd(adTitle, adDescription, adImg, adPrice);
-        /* setTimeout(() => {
+        setTimeout(() => {
             window.location = 'http://127.0.0.1:5500';
-        }, 2000); */
+        }, 2000);
     }
 }

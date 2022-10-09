@@ -1,3 +1,4 @@
+import { pubSub } from '../pubsub.js';
 import { signupApi, loginApi } from './signup-provider.js';
 
 export class SignupController {
@@ -31,20 +32,17 @@ export class SignupController {
 
     validatePassword() {
         const passwordElement = this.signupElement.querySelector('#password');
-        // const passwordMinLength = 6;
-        const regExp = new RegExp(/^(?=(?:.*\d))(?=(?:.*[A-Z]))(?=(?:.*[a-z]))\S{6,}$/); // Buscar manera de incrustar y no hardcodear el mínimo de caracteres
+        const passwordMinLength = 6;
+        const regExp = new RegExp(/^(?=(?:.*\d))(?=(?:.*[A-Z]))(?=(?:.*[a-z]))\S{6,}$/);
+        // TODO Buscar manera de incrustar y no hardcodear el mínimo de caracteres
 
         if (regExp.test(passwordElement.value)) {
             this.signup();
         } else {
-            /* pubSub.publish(
+            pubSub.publish(
                 pubSub.TOPICS.ERROR_NOTIFICATION,
-                `La contraseña debe tener más de ${passwordMinLength} caracteres.` 
-            );*/
-            /* pubSub.publish(
-                pubSub.TOPICS.ERROR_NOTIFICATION,
-                'La contraseña debe contener mayúsculas, minúsculas o números.'
-            ); */
+                `La contraseña debe tener más de ${passwordMinLength} caracteres y contener mayúsculas, minúsculas y números.`
+            );
         }
     }
 
@@ -57,7 +55,7 @@ export class SignupController {
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
         } catch (error) {
-            /* pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'El registro o el login han fallado');  */
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'El registro o el login han fallado');
         }
     }
 }

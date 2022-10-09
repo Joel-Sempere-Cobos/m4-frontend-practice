@@ -1,9 +1,9 @@
 import { NotificationController } from '../notifications/NotificationController.js';
-import { SignupController } from './SignupController.js';
+import { LoginController } from './LoginController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const signupElement = document.querySelector('#signup-form');
-    const signupController = new SignupController(signupElement);
+    const loginElement = document.querySelector('#login-form');
+    const loginController = new LoginController(loginElement);
 
     const notificationElement = document.querySelector('#notification');
     const notificationController = new NotificationController(notificationElement);

@@ -1,3 +1,4 @@
+import { pubSub } from '../pubsub.js';
 import { decodeToken } from '../utils/decodeToken.js';
 import { getAdById } from './adDetailsProvider.js';
 import { buildAdDetails } from './adDetailsView.js';
@@ -14,8 +15,7 @@ export class AdDetailsController {
             this.adDetailsContainerElement.innerHTML = buildAdDetails(ad);
             this.drawRemoveButton();
         } catch (error) {
-            this.adDetailsContainerElement.innerHTML = `Ha habido un error: ${error}`;
-            //pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'No se ha podido cargar el tweet');
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'No se ha podido cargar el anuncio');
         }
     }
 
@@ -39,7 +39,7 @@ export class AdDetailsController {
                 alert('Tweet borrado exitosamente');
                 window.location = '/';
             } catch (error) {
-                //pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Error borrando el tweet');
+                pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Error borrando el anuncio');
             }
         }
     }
