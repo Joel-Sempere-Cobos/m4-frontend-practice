@@ -5,7 +5,6 @@ export const buildAdsListView = (ad) => {
     <p>${ad.title}</p>
     <p>${ad.description}</p>
     <p>Precio: ${ad.price}€</p>
-    <p>${ad.buySell}</p>
     `;
 
     return adView;
