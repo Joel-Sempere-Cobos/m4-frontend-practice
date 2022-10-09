@@ -1,6 +1,6 @@
 import { pubSub } from '../pubsub.js';
 import { decodeToken } from '../utils/decodeToken.js';
-import { getAdById } from './adDetailsProvider.js';
+import { getAdById, removeAdById } from './adDetailsProvider.js';
 import { buildAdDetails } from './adDetailsView.js';
 
 export class AdDetailsController {
@@ -13,17 +13,17 @@ export class AdDetailsController {
             const ad = await getAdById(adId);
             this.ad = ad;
             this.adDetailsContainerElement.innerHTML = buildAdDetails(ad);
-            this.drawRemoveButton();
+            this.drawRemoveButton(ad.userId);
         } catch (error) {
             pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'No se ha podido cargar el anuncio');
         }
     }
 
-    drawRemoveButton() {
+    drawRemoveButton(adOwnerId) {
         const token = localStorage.getItem('token');
         if (token) {
             const tokenData = decodeToken(token);
-            if (tokenData.userId === this.adOwnerId) {
+            if (tokenData.userId === adOwnerId) {
                 const removeButton = this.adDetailsContainerElement.querySelector('button');
                 removeButton.style.display = 'block';
                 removeButton.addEventListener('click', this.removeAd());
@@ -36,7 +36,7 @@ export class AdDetailsController {
         if (response) {
             try {
                 await removeAdById(this.ad.id);
-                alert('Tweet borrado exitosamente');
+                alert('Anuncio borrado exitosamente');
                 window.location = '/';
             } catch (error) {
                 pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Error borrando el anuncio');

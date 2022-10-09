@@ -20,3 +20,9 @@ Aquí puedes descargar el [enunciado de la práctica](https://github.com/Joel-Se
 
 *   CSS:
     He añadido algo de CSS
+
+## Fallos conocidos
+
+-   Al entrar al detalle de un anuncio propio se dispara automáticamente el botón de borrar anuncio... no me ha dado tiempo a encontrar el error
+
+*   En la creación de anuncio, no he conseguido separar los resultados del radio input de compra/venta para mostrarlo correctamente.

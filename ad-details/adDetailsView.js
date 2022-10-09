@@ -10,7 +10,6 @@ export const buildAdDetails = (ad) => {
     </article>
     <button style="display: none">Borrar anuncio</button>
     `;
-    console.log(ad.user);
 
     return adView;
 };
