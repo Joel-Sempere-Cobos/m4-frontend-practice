@@ -56,8 +56,6 @@ export class SignupController {
             await signupApi(username, password);
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
-
-            // TODO que te loguee si ya estás registrado y te registre si no lo estás
         } catch (error) {
             /* pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'El registro o el login han fallado');  */
         }

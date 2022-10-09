@@ -3,9 +3,10 @@ export const buildAdDetails = (ad) => {
     const adView = `
     <article class="ad">
     <img src="${ad.img}"  width="100px" >
-    <p>${ad.adTitle}</p>
+    <p>${ad.title}</p>
     <p>${ad.description}</p>
     <p>Precio: ${ad.price}€</p>
+    <p>${ad.buySell}</p>
     </article>
     <button style="display: none">Borrar anuncio</button>
     `;
