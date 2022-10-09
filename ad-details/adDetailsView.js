@@ -7,6 +7,7 @@ export const buildAdDetails = (ad) => {
     <p>${ad.description}</p>
     <p>Precio: ${ad.price}€</p>
     </article>
+    <button style="display: none">Borrar anuncio</button>
     `;
 
     return adView;

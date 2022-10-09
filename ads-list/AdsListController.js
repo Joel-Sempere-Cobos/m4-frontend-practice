@@ -22,7 +22,7 @@ export class AdsListController {
             this.adsListContainerElement.appendChild(articleElement);
 
             articleElement.addEventListener('click', () => {
-                window.location = `http://127.0.0.1:5500/ad-details.html?id=${ad.id}`; //TODO añadir id y refactorizar
+                window.location = `http://127.0.0.1:5500/ad-details.html?id=${ad.id}`; //TODO refactorizar
             });
             articleElement.style.cursor = 'pointer';
 

@@ -5,6 +5,6 @@ export const getAdById = async (adId) => {
     return ad;
 };
 
-/* export const removeAdById = async (adId) => {
+export const removeAdById = async (adId) => {
     await sparrestApi.delete(`${sparrestApi.endpoints.ads}/${adId}`);
-}; */
+};

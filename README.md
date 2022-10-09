@@ -13,7 +13,7 @@ Aquí puedes descargar el [enunciado de la práctica](https://github.com/Joel-Se
     También he hecho que las condiciones sean AND y no OR como estaban.
 
 *   Ver detalle:
-    Para ver el detalle de cada anuncio, en lugar de hacer un `<a>`, he hecho que toda el area del `<article>` sea clicable y ajustado el puntero del ratón para que lo señale cuando pase por encima.
+    Para ver el detalle de cada anuncio, en lugar de usar un `<a>` sobre imagen o texto, he hecho que toda el area del `<article>` sea clicable y ajustado el puntero del ratón para que cambie y lo señale cuando pase por encima.
 
 -   Navegación:
     He añadido una mínima navegación para facilitar desplazarse por las páginas sin tener que teclear URLs
