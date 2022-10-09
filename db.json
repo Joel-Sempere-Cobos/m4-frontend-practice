@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "username": "usuario1",
+      "password": "$2b$10$j89dd5rmIfCalbTbUGi3wuTD9tqnlfIhkHNQB9QoT.NuWaGYgyBfW",
+      "id": 1
+    },
+    {
+      "username": "usuario2",
+      "password": "$2b$10$j89dd5rmIfCalbTbUGi3wu4TL3K3eKK3LcfCI7Te.hRazM3uJq7a2",
+      "id": 2
+    }
+  ],
+  "ads": [
+    {
+      "title": "iPhone",
+      "description": "Teléfono iPhone con mucha batería, fotos brutales, y una manzana muy bonita.",
+      "img": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1617135051000",
+      "price": "600",
+      "userId": 1,
+      "updatedAt": "2022-10-09T21:40:05.568Z",
+      "id": 1
+    },
+    {
+      "title": "Coche electrico",
+      "description": "Cochazo que solo le falta volar y hacer café. Va con energía nuclear y puede sumergirse a 10m.",
+      "img": "https://imagenes.elpais.com/resizer/DH8rgpxWuzU67UBNtSRVGypaqPk=/1960x1103/ep01.epimg.net/elpais/imagenes/2016/11/24/talento_digital/1479993397_346398_1480070985_noticia_fotograma.jpg",
+      "price": "100000",
+      "userId": 2,
+      "updatedAt": "2022-10-09T21:41:32.230Z",
+      "id": 2
+    },
+    {
+      "title": "Saxo barítono",
+      "description": "Instrumento en perfecto estado. Tiene todas las notas, y si soplas suena muy fuerte.",
+      "img": "https://www.trinomusic.com/sites/default/files/styles/producto_colorbox/public/content_images/product/sax_593gl_0.jpg?itok=5vp3gyqH",
+      "price": "10",
+      "userId": 2,
+      "updatedAt": "2022-10-09T21:42:29.894Z",
+      "id": 3
+    }
+  ]
+}
