@@ -31,20 +31,16 @@ export class SignupController {
 
     validatePassword() {
         const passwordElement = this.signupElement.querySelector('#password');
-        const passwordMinLength = 6;
-
-        if (passwordElement.value.length < passwordMinLength) {
-            /* pubSub.publish(
-                pubSub.TOPICS.ERROR_NOTIFICATION,
-                `La contraseña debe tener más de ${passwordMinLength} caracteres.` 
-            );*/
-        }
-
-        const regExp = new RegExp(/^[a-zA-Z0-9]+$/);
+        // const passwordMinLength = 6;
+        const regExp = new RegExp(/^(?=(?:.*\d))(?=(?:.*[A-Z]))(?=(?:.*[a-z]))\S{6,}$/); // Buscar manera de incrustar y no hardcodear el mínimo de caracteres
 
         if (regExp.test(passwordElement.value)) {
             this.signup();
         } else {
+            /* pubSub.publish(
+                pubSub.TOPICS.ERROR_NOTIFICATION,
+                `La contraseña debe tener más de ${passwordMinLength} caracteres.` 
+            );*/
             /* pubSub.publish(
                 pubSub.TOPICS.ERROR_NOTIFICATION,
                 'La contraseña debe contener mayúsculas, minúsculas o números.'
@@ -61,7 +57,7 @@ export class SignupController {
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
 
-            // hacer cosas
+            // TODO que te loguee si ya estás registrado y te registre si no lo estás
         } catch (error) {
             /* pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'El registro o el login han fallado');  */
         }
