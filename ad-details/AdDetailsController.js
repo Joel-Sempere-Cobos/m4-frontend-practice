@@ -26,7 +26,7 @@ export class AdDetailsController {
             if (tokenData.userId === adOwnerId) {
                 const removeButton = this.adDetailsContainerElement.querySelector('button');
                 removeButton.style.display = 'block';
-                removeButton.addEventListener('click', this.removeAd());
+                removeButton.addEventListener('click', this.removeAd);
             }
         }
     }

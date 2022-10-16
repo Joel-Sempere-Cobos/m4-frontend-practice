@@ -7,8 +7,9 @@ export const buildAdDetails = (ad) => {
     <p>${ad.description}</p>
     <p>Precio: ${ad.price}€</p>
     <p>Anunciante: @${ad.user.username}</p>
-    </article>
     <button style="display: none">Borrar anuncio</button>
+    </article>
+    
     `;
 
     return adView;
