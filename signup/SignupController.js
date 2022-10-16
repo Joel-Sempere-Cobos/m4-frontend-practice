@@ -32,17 +32,23 @@ export class SignupController {
 
     validatePassword() {
         const passwordElement = this.signupElement.querySelector('#password');
+        const confirmPasswordElement = this.signupElement.querySelector('#confirm-password');
+
         const passwordMinLength = 6;
         const regExp = new RegExp(/^(?=(?:.*\d))(?=(?:.*[A-Z]))(?=(?:.*[a-z]))\S{6,}$/);
         // TODO Buscar manera de incrustar y no hardcodear el mínimo de caracteres
 
-        if (regExp.test(passwordElement.value)) {
-            this.signup();
+        if (confirmPasswordElement.value === passwordElement.value) {
+            if (regExp.test(passwordElement.value)) {
+                this.signup();
+            } else {
+                pubSub.publish(
+                    pubSub.TOPICS.ERROR_NOTIFICATION,
+                    `La contraseña debe tener más de ${passwordMinLength} caracteres y contener mayúsculas, minúsculas y números.`
+                );
+            }
         } else {
-            pubSub.publish(
-                pubSub.TOPICS.ERROR_NOTIFICATION,
-                `La contraseña debe tener más de ${passwordMinLength} caracteres y contener mayúsculas, minúsculas y números.`
-            );
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Las contraseñas no coinciden.');
         }
     }
 
@@ -51,7 +57,6 @@ export class SignupController {
         const username = formData.get('username');
         const password = formData.get('password');
         try {
-            debugger;
             await signupApi(username, password);
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
