@@ -21,8 +21,8 @@ Aquí puedes descargar el [enunciado de la práctica](https://github.com/Joel-Se
 *   CSS:
     He añadido algo de CSS
 
+-   Creación de anuncios: he deshabilitado el botón de enviar hasta que no se rellenen todos los campos obligatorios.
+
 ## Fallos conocidos
 
--   Al entrar al detalle de un anuncio propio se dispara automáticamente el botón de borrar anuncio... no me ha dado tiempo a encontrar el error
-
-*   En la creación de anuncio, no he conseguido separar los resultados del radio input de compra/venta para mostrarlo correctamente.
+-   En la creación de anuncio, no he conseguido separar los resultados del radio input de compra/venta para mostrarlo correctamente.

@@ -19,15 +19,22 @@
         <form id="create-ads-form">
             <div>
                 <label for="ad-title">Título de tu anuncio</label>
-                <input name="ad-title" id="ad-title" type="text" />
+                <input class="required" name="ad-title" id="ad-title" type="text" />
             </div>
             <div>
                 <label for="ad-description">Descripción detallada</label>
-                <textarea name="ad-description" id="ad-description" cols="30" rows="10"></textarea>
+                <textarea
+                    class="required"
+                    name="ad-description"
+                    id="ad-description"
+                    cols="30"
+                    rows="10"
+                ></textarea>
             </div>
             <div>
                 <label for="ad-price">Precio (en euros)</label>
-                <input name="ad-price" id="ad-price" type="number" pattern="/"^[0-9]+$"/" />
+                <input class='required' name="ad-price" id="ad-price" type="number"
+                pattern="/"^[0-9]+$"/" />
             </div>
 
             <!--  <div>
@@ -46,7 +53,7 @@
                 <input type="text" id="ad-img" name="ad-img" />
             </div>
             <div>
-                <button type="submit">Crear anuncio</button>
+                <button type="submit" id="createAdsButton" disabled>Crear anuncio</button>
             </div>
         </form>
 

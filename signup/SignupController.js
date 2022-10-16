@@ -51,11 +51,17 @@ export class SignupController {
         const username = formData.get('username');
         const password = formData.get('password');
         try {
+            debugger;
             await signupApi(username, password);
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Usuario creado con éxito');
+            this.signupElement.innerHTML = '';
+            setTimeout(() => {
+                window.location = '/';
+            }, 1000);
         } catch (error) {
-            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'El registro o el login han fallado');
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, `Ha habido un error: ${error}`);
         }
     }
 }

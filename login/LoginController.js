@@ -54,6 +54,8 @@ export class LoginController {
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
             pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Acceso confirmado');
+            this.loginElement.innerHTML = '';
+
             setTimeout(() => {
                 window.location = '/';
             }, 1500);

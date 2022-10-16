@@ -5,7 +5,12 @@ export const signupApi = async (username, password) => {
         username,
         password,
     };
-    await sparrestApi.post(sparrestApi.endpoints.signup, body);
+    const user = await sparrestApi.post(sparrestApi.endpoints.signup, body);
+    if (user.username && user.password) {
+        return user;
+    } else {
+        throw new Error('El registro ha fallado.');
+    }
 };
 
 export const loginApi = async (username, password) => {
@@ -14,5 +19,9 @@ export const loginApi = async (username, password) => {
         password,
     };
     const data = await sparrestApi.post(sparrestApi.endpoints.login, body);
-    return data.accessToken;
+    if (data.accessToken) {
+        return data.accessToken;
+    } else {
+        throw new Error('El login ha fallado.');
+    }
 };
