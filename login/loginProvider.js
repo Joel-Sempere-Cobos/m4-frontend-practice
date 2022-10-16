@@ -6,5 +6,9 @@ export const loginApi = async (username, password) => {
         password,
     };
     const data = await sparrestApi.post(sparrestApi.endpoints.login, body);
-    return data.accessToken;
+    if (data.accessToken) {
+        return data.accessToken;
+    } else {
+        throw new Error('Acceso fallido.');
+    }
 };

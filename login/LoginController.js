@@ -49,12 +49,19 @@ export class LoginController {
         const formData = new FormData(this.loginElement);
         const username = formData.get('username');
         const password = formData.get('password');
+
         try {
-            await loginApi(username, password);
             const jwt = await loginApi(username, password);
             localStorage.setItem('token', jwt);
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Acceso confirmado');
+            setTimeout(() => {
+                window.location = '/';
+            }, 1500);
         } catch (error) {
-            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'El login ha fallado');
+            pubSub.publish(
+                pubSub.TOPICS.ERROR_NOTIFICATION,
+                'Acceso fallido. Por favor, verifica usuario y contraseña.'
+            );
         }
     }
 }
