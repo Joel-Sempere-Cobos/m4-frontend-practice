@@ -5,37 +5,39 @@ import { buildAdDetails } from './adDetailsView.js';
 
 export class AdDetailsController {
     constructor(nodeElement) {
-        this.adDetailsContainerElement = nodeElement;
+        this.adDetailsElement = nodeElement;
     }
 
     async drawAdDetails(adId) {
         try {
             const ad = await getAdById(adId);
             this.ad = ad;
-            this.adDetailsContainerElement.innerHTML = buildAdDetails(ad);
-            this.drawRemoveButton(ad.userId);
+            this.adDetailsElement.innerHTML = buildAdDetails(ad);
+            this.drawRemoveButton(ad.userId, ad.id);
         } catch (error) {
             pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'No se ha podido cargar el anuncio');
         }
     }
 
-    drawRemoveButton(adOwnerId) {
+    drawRemoveButton(adOwnerId, adId) {
         const token = localStorage.getItem('token');
         if (token) {
             const tokenData = decodeToken(token);
             if (tokenData.userId === adOwnerId) {
-                const removeButton = this.adDetailsContainerElement.querySelector('button');
+                const removeButton = this.adDetailsElement.querySelector('button');
                 removeButton.style.display = 'block';
-                removeButton.addEventListener('click', this.removeAd);
+                removeButton.addEventListener('click', () => {
+                    this.removeAd(adId);
+                });
             }
         }
     }
 
-    async removeAd() {
+    async removeAd(adId) {
         const response = window.confirm('¿Seguro que quieres borrar el anuncio?');
         if (response) {
             try {
-                await removeAdById(this.ad.id);
+                await removeAdById(adId);
                 alert('Anuncio borrado exitosamente');
                 window.location = '/';
             } catch (error) {
