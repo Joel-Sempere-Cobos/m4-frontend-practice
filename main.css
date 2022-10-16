@@ -39,3 +39,7 @@ header nav a {
 .hide {
     display: none;
 }
+
+article img {
+    width: 150px;
+}
