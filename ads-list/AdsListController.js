@@ -10,13 +10,11 @@ export class AdsListController {
 
     async loadAds() {
         this.adsListContainerElement.innerHTML = buildAdsListLoader();
-        const adsList = await getAds();
-
         try {
+            const adsList = await getAds();
             if (adsList.length === 0) {
                 this.showNoAds();
             }
-
             for (let ad of adsList) {
                 const articleElement = document.createElement('article');
                 articleElement.classList.add('ad');
@@ -38,6 +36,7 @@ export class AdsListController {
                 .querySelector('.loader-container')
                 .classList.toggle('hide');
         } catch (error) {
+            this.adsListContainerElement.innerHTML = '';
             pubSub(pubSub.TOPICS.ERROR_NOTIFICATION, `Error al cargar los anuncios: ${error}`);
         }
     }

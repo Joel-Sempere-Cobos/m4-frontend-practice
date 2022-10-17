@@ -38,14 +38,10 @@ export class CreateAdsController {
         const adDescription = formData.get('ad-description');
         const adImg = formData.get('ad-img');
         const adPrice = formData.get('ad-price');
-        //TODO radio input COMPRAR VENDER
-        //const adBuy = this.createAdsElement.querySelector('#ad-buy').value;
-        //const adSell = this.createAdsElement.querySelector('#ad-sell').value;
-
-        /*         const adBuySell = formData.get('ad-buy-sell'); */
+        const adBuySell = formData.get('ad-buy-sell-field');
 
         try {
-            await createApiAd(adTitle, adDescription, adImg, adPrice);
+            await createApiAd(adTitle, adDescription, adImg, adPrice, adBuySell);
             pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'Anuncio creado con éxito');
             this.createAdsElement.innerHTML = '';
             setTimeout(() => {

@@ -19,7 +19,7 @@
         <form id="create-ads-form">
             <div>
                 <label for="ad-title">Título de tu anuncio</label>
-                <input class="required" name="ad-title" id="ad-title" type="text" />
+                <input class="required" required name="ad-title" id="ad-title" type="text" />
             </div>
             <div>
                 <label for="ad-description">Descripción detallada</label>
@@ -29,24 +29,40 @@
                     id="ad-description"
                     cols="30"
                     rows="10"
+                    required
                 ></textarea>
             </div>
             <div>
                 <label for="ad-price">Precio (en euros)</label>
-                <input class='required' name="ad-price" id="ad-price" type="number"
+                <input class='required' required name="ad-price" id="ad-price" type="number"
                 pattern="/"^[0-9]+$"/" />
             </div>
 
-            <!--  <div>
-                <fieldset>
+            <div>
+                <fieldset name="ad-buy-sell-field">
                     <legend name="ad-buy-sell-field">¿Compras o vendes?</legend>
 
                     <label for="ad-sell">Vendo</label>
-                    <input name="ad-buy-sell" id="ad-sell" type="radio" checked />
+                    <input
+                        class="required"
+                        required
+                        name="ad-buy-sell-field"
+                        id="ad-sell"
+                        type="radio"
+                        value="Vendo"
+                        checked
+                    />
                     <label for="ad-buy">Compro</label>
-                    <input name="ad-buy-sell" id="ad-buy" type="radio" />
+                    <input
+                        class="required"
+                        required
+                        name="ad-buy-sell-field"
+                        id="ad-buy"
+                        type="radio"
+                        value="Compro"
+                    />
                 </fieldset>
-            </div> -->
+            </div>
 
             <div>
                 <label for="ad-img">URL de tu imagen</label>

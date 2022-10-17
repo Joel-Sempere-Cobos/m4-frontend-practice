@@ -1,9 +1,12 @@
 export const buildAdsListView = (ad) => {
     const adView = `
     <img src="${ad.img}">
+    <p>${ad.buy_or_sell}</p>
     <p>${ad.title}</p>
     <p>${ad.description}</p>
     <p>Precio: ${ad.price}€</p>
+    
+
     `;
     return adView;
 };

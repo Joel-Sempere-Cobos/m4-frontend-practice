@@ -2,6 +2,7 @@ export const buildAdDetails = (ad) => {
     const adView = `
     <article class="ad">
     <img src="${ad.img}">
+    <p>${ad.buy_or_sell}</p>
     <p>${ad.title}</p>
     <p>${ad.description}</p>
     <p>Precio: ${ad.price}€</p>

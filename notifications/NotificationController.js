@@ -21,6 +21,7 @@ export class NotificationController {
 
         closeButtonElement.addEventListener('click', () => {
             this.notificationElement.innerHTML = '';
+            location.reload();
         });
     }
 
