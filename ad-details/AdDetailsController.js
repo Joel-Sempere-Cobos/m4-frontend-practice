@@ -18,7 +18,7 @@ export class AdDetailsController {
             this.drawRemoveButton(ad.userId, ad.id);
         } catch (error) {
             this.adDetailsElement.innerHTML = '';
-            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, error);
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'No se ha podido cargar el anuncio.');
         }
     }
 

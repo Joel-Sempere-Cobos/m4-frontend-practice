@@ -23,6 +23,6 @@ Aquí puedes descargar el [enunciado de la práctica](https://github.com/Joel-Se
 
 -   Creación de anuncios: he deshabilitado el botón de enviar hasta que no se rellenen todos los campos obligatorios.
 
-## Fallos conocidos
+*   Los anuncios se ordenan de más nuevos a más antiguos.
 
--   En la creación de anuncio, no he conseguido separar los resultados del radio input de compra/venta para mostrarlo correctamente.
+-   En las notificaciones de PubSub, el botón de cerrar la notificación también refresca la página.

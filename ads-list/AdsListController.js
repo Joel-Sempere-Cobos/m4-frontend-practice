@@ -42,15 +42,11 @@ export class AdsListController {
                 .classList.toggle('hide');
         } catch (error) {
             this.adsListContainerElement.innerHTML = '';
-            pubSub(pubSub.TOPICS.ERROR_NOTIFICATION, `Error al cargar los anuncios: ${error}`);
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, `Error al cargar los anuncios`);
         }
     }
 
     showNoAds() {
         this.adsListContainerElement.innerHTML = 'No hay anuncios';
-    }
-
-    errorNotification(error) {
-        this.adsListContainerElement.innerHTML = `Ha habido un error: ${error}`;
     }
 }
