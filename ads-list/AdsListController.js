@@ -15,6 +15,11 @@ export class AdsListController {
             if (adsList.length === 0) {
                 this.showNoAds();
             }
+
+            adsList.sort((a, b) => {
+                return b.id - a.id;
+            });
+
             for (let ad of adsList) {
                 const articleElement = document.createElement('article');
                 articleElement.classList.add('ad');
