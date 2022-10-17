@@ -1,7 +1,7 @@
 import { pubSub } from '../pubsub.js';
 import { decodeToken } from '../utils/decodeToken.js';
 import { getAdById, removeAdById } from './adDetailsProvider.js';
-import { buildAdDetails } from './adDetailsView.js';
+import { buildAdDetails, buildAdsListLoader } from './adDetailsView.js';
 
 export class AdDetailsController {
     constructor(nodeElement) {
@@ -9,13 +9,16 @@ export class AdDetailsController {
     }
 
     async drawAdDetails(adId) {
+        this.adDetailsElement.innerHTML = buildAdsListLoader();
+
         try {
             const ad = await getAdById(adId);
             this.ad = ad;
             this.adDetailsElement.innerHTML = buildAdDetails(ad);
             this.drawRemoveButton(ad.userId, ad.id);
         } catch (error) {
-            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, 'No se ha podido cargar el anuncio');
+            this.adDetailsElement.innerHTML = '';
+            pubSub.publish(pubSub.TOPICS.ERROR_NOTIFICATION, error);
         }
     }
 

@@ -12,3 +12,9 @@ export const buildAdDetails = (ad) => {
 
     return adView;
 };
+
+export const buildAdsListLoader = () => {
+    return `
+    <div class="loader-container"><span class="loader"></span></div>
+    `;
+};
