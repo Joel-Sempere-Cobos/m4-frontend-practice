@@ -26,3 +26,5 @@ Aquí puedes descargar el [enunciado de la práctica](https://github.com/Joel-Se
 *   Los anuncios se ordenan de más nuevos a más antiguos.
 
 -   En las notificaciones de PubSub, el botón de cerrar la notificación también refresca la página.
+
+*   La barra de navegación cambia dependiendo de si se está logueado o no, dando la opción de crear anuncio y desconectarse solo en caso de estarlo.
