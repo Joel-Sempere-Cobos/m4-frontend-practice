@@ -58,7 +58,7 @@ export class LoginController {
 
             setTimeout(() => {
                 window.location = '/';
-            }, 1500);
+            }, 1000);
         } catch (error) {
             pubSub.publish(
                 pubSub.TOPICS.ERROR_NOTIFICATION,
